@@ -13,11 +13,11 @@ async function bootstrap() {
       transport: Transport.TCP,
       options: {
         host: process.env.HOST,
-        port: parseInt(process.env.AUTHSERVICEPORT, 10), 
+        port: parseInt(process.env.AUTH_SERVICE_PORT, 10), 
       },
     },
   );
   await app.listen();
-  console.log(`Auth service is listening on TCP ${process.env.HOST}:${parseInt(process.env.AUTHSERVICEPORT)}`);
+  console.log(`Auth service is listening on TCP ${process.env.HOST}:${parseInt(process.env.AUTH_SERVICE_PORT)}`);
 }
 bootstrap();
