@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 
 import * as dotenv from 'dotenv';
+import { ValidationPipe } from '@nestjs/common';
 
 dotenv.config();
 
@@ -17,6 +18,8 @@ async function bootstrap() {
       },
     },
   );
+  
+  app.useGlobalPipes(new ValidationPipe())
   await app.listen();
   console.log(`Auth service is listening on TCP ${process.env.HOST}:${parseInt(process.env.AUTH_SERVICE_PORT)}`);
 }
